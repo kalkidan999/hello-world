@@ -5,7 +5,6 @@
 #include "shell.h"
 #include "source.h"
 #include "parser.h"
-#include "backend.h"
 int main(int argc, char **argv)
 {
     char *cmd;
