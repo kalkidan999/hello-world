@@ -1,7 +1,3 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-#include <errno.h>
 #include "shell.h"
 char *tok_buf = NULL;
 int   tok_bufsize  = 0;
@@ -36,7 +32,7 @@ struct token_s *create_token(char *str)
         return NULL;
     }
     memset(tok, 0, sizeof(struct token_s));
-    tok->text_len = strlen(str);
+    tok->text_len = _strlen(str);
     
     char *nstr = malloc(tok->text_len+1);
     
@@ -46,7 +42,7 @@ struct token_s *create_token(char *str)
         return NULL;
     }
     
-    strcpy(nstr, str);
+    _strcpy(nstr, str);
     tok->text = nstr;
     
     return tok;
