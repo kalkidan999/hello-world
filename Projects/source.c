@@ -1,4 +1,3 @@
-#include <errno.h>
 #include "shell.h"
 void unget_char(struct source_s *src)
 {
