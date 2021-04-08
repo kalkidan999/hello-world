@@ -1,10 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <string.h>
-#include <errno.h>
-#include <sys/stat.h>
-#include <sys/wait.h>
 #include "shell.h"
 char *search_path(char *file)
 {
@@ -26,7 +19,7 @@ char *search_path(char *file)
             plen = 1;
         }
         
-        int  alen = strlen(file);
+        int  alen = _strlen(file);
         char path[plen+1+alen+1];
         
 	strncpy(path, p, p2-p);
@@ -34,9 +27,9 @@ char *search_path(char *file)
         
 	if(p2[-1] != '/')
         {
-            strcat(path, "/");
+            _strcat(path, "/");
         }
-        strcat(path, file);
+        _strcat(path, file);
         
 	struct stat st;
         if(stat(path, &st) == 0)
@@ -51,13 +44,13 @@ char *search_path(char *file)
                 }
                 continue;
             }
-            p = malloc(strlen(path)+1);
+            p = malloc(_strlen(path)+1);
             if(!p)
             {
                 return NULL;
             }
             
-	    strcpy(p, path);
+	    _strcpy(p, path);
             return p;
         }
         else    /* file not found */
@@ -74,7 +67,7 @@ char *search_path(char *file)
 }
 int do_exec_cmd(int argc, char **argv)
 {
-    if(strchr(argv[0], '/'))
+    if(_strchr(argv[0], '/'))
     {
         execv(argv[0], argv);
     }
@@ -121,7 +114,7 @@ int do_simple_command(struct node_s *node)
     while(child)
     {
         str = child->val.str;
-        argv[argc] = malloc(strlen(str)+1);
+        argv[argc] = malloc(_strlen(str)+1);
         
 	if(!argv[argc])
         {
@@ -129,7 +122,7 @@ int do_simple_command(struct node_s *node)
             return 0;
         }
         
-	strcpy(argv[argc], str);
+	_strcpy(argv[argc], str);
         if(++argc >= max_args)
         {
             break;
