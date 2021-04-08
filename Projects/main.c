@@ -1,7 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <string.h>
 #include "shell.h"
 int main(int argc, char **argv)
 {
@@ -14,19 +10,19 @@ int main(int argc, char **argv)
         {
             exit(EXIT_SUCCESS);
         }
-        if(cmd[0] == '\0' || strcmp(cmd, "\n") == 0)
+        if(cmd[0] == '\0' || _strcmp(cmd, "\n") == 0)
         {
             free(cmd);
             continue;
         }
-        if(strcmp(cmd, "exit\n") == 0)
+        if(_strcmp(cmd, "exit\n") == 0)
         {
             free(cmd);
             break;
         }
         struct source_s src;
         src.buffer   = cmd;
-        src.bufsize  = strlen(cmd);
+        src.bufsize  = _strlen(cmd);
         src.curpos   = INIT_SRC_POS;
         parse_and_execute(&src);
         free(cmd);
@@ -41,7 +37,7 @@ char *read_cmd(void)
 
     while(fgets(buf, 1024, stdin))
     {
-        int buflen = strlen(buf);
+        int buflen = _strlen(buf);
 
         if(!ptr)
         {
@@ -69,7 +65,7 @@ char *read_cmd(void)
             return NULL;
         }
 
-        strcpy(ptr+ptrlen, buf);
+        _strcpy(ptr+ptrlen, buf);
 
         if(buf[buflen-1] == '\n')
         {
