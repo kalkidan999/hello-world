@@ -8,7 +8,6 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 /* prototype for scanning input*/
-#define EOF             (-1)
 #define ERRCHAR         ( 0)
 #define INIT_SRC_POS    (-2)
 struct source_s
