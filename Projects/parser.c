@@ -1,9 +1,5 @@
 #include <unistd.h>
 #include "shell.h"
-#include "parser.h"
-#include "scanner.h"
-#include "node.h"
-#include "source.h"
 struct node_s *parse_simple_command(struct token_s *tok)
 {
     if(!tok)
