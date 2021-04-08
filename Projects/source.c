@@ -1,6 +1,5 @@
 #include <errno.h>
 #include "shell.h"
-#include "source.h"
 void unget_char(struct source_s *src)
 {
     if(src->curpos < 0)
