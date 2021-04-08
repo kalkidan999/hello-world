@@ -3,8 +3,6 @@
 #include <stdio.h>
 #include <errno.h>
 #include "shell.h"
-#include "node.h"
-#include "parser.h"
 struct node_s *new_node(enum node_type_e type)
 {
     struct node_s *node = malloc(sizeof(struct node_s));
