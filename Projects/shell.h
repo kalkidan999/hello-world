@@ -80,4 +80,12 @@ void print_prompt1(void);
 void print_prompt2(void);
 char *read_cmd(void);
 int  parse_and_execute(struct source_s *src);
+/* prototype for string exec*/
+int _strcmp(char *s1, char *s2);
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+char *_strcat(char *dest, char *src);
+char *_strtok(char *str, char *limi);
+char *_strchr(char *stri, char car);
+unsigned int _strcspn(char *str, char *pre);
 #endif 
