@@ -1,7 +1,3 @@
-#include <stdlib.h>
-#include <string.h>
-#include <stdio.h>
-#include <errno.h>
 #include "shell.h"
 struct node_s *new_node(enum node_type_e type)
 {
@@ -49,7 +45,7 @@ void set_node_val_str(struct node_s *node, char *val)
     }
     else
     {
-        char *val2 = malloc(strlen(val)+1);
+        char *val2 = malloc(_strlen(val)+1);
     
     	if(!val2)
         {
@@ -57,7 +53,7 @@ void set_node_val_str(struct node_s *node, char *val)
         }
         else
         {
-            strcpy(val2, val);
+            _strcpy(val2, val);
             node->val.str = val2;
         }
     }
