@@ -3,8 +3,6 @@
 #include <errno.h>
 #include <string.h>
 #include "shell.h"
-#include "source.h"
-#include "parser.h"
 int main(int argc, char **argv)
 {
     char *cmd;
