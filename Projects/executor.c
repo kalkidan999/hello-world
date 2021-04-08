@@ -6,8 +6,6 @@
 #include <sys/stat.h>
 #include <sys/wait.h>
 #include "shell.h"
-#include "node.h"
-#include "executor.h"
 char *search_path(char *file)
 {
     char *PATH = getenv("PATH");
