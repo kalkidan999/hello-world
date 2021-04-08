@@ -3,8 +3,6 @@
 #include <string.h>
 #include <errno.h>
 #include "shell.h"
-#include "scanner.h"
-#include "source.h"
 char *tok_buf = NULL;
 int   tok_bufsize  = 0;
 int   tok_bufindex = -1;
