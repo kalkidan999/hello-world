@@ -43,8 +43,6 @@ enum val_type_e
 {
     VAL_SINT = 1,       /* signed int */
     VAL_UINT,         /* unsigned int */
-    VAL_SLLONG,         /* signed long long */
-    VAL_ULLONG,        /* unsigned long long */
     VAL_FLOAT,        /* floating point */
     VAL_LDOUBLE,        /* long double */
     VAL_CHR,          /* char */
@@ -54,8 +52,6 @@ union symval_u
 {
     long               sint;
     unsigned long      uint;
-    long long          sllong;
-    unsigned long long ullong;
     double             sfloat;
     long double        ldouble;
     char               chr;
