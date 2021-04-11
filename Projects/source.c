@@ -9,7 +9,7 @@ void unget_char(struct source_s *src)
 }
 char next_char(struct source_s *src)
 {
-char c1;
+char c1 = 0;
     if(!src || !src->buffer)
     {
         errno = ENODATA;
@@ -32,12 +32,13 @@ char c1;
 }
 char peek_char(struct source_s *src)
 {
+long pos;
     if(!src || !src->buffer)
     {
         errno = ENODATA;
         return ERRCHAR;
     }
-    long pos = src->curpos;
+    pos = src->curpos;
     if(pos == INIT_SRC_POS)
     {
         pos++;
