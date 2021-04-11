@@ -24,7 +24,6 @@ char next_char(struct source_s *src)
     }
     if(++src->curpos >= src->bufsize)
     {
-        src->curpos = src->bufsize;
         return EOF;
     }
     return src->buffer[src->curpos];
