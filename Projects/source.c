@@ -18,10 +18,6 @@ char next_char(struct source_s *src)
     {
         src->curpos  = -1;
     }
-    else
-    {
-       src->buffer[src->curpos];
-    }
     if(++src->curpos >= src->bufsize)
     {
         return EOF;
