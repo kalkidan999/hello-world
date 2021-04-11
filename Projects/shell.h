@@ -35,8 +35,8 @@ struct node_s *parse_simple_command(struct token_s *tok);
 /* prototype for node header*/
 enum node_type_e
 {
-    NODE_COMMAND;           /* simple command */
-    NODE_VAR;               /* variable name (or simply, a word) */
+    NODE_COMMAND,           /* simple command */
+    NODE_VAR,               /* variable name (or simply, a word) */
 };
 enum val_type_e
 {
