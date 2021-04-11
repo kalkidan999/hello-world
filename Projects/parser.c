@@ -2,19 +2,21 @@
 #include "shell.h"
 struct node_s *parse_simple_command(struct token_s *tok)
 {
+struct node_s *cmd;
+struct source_s *src;
+struct node_s *word;
     if(!tok)
     {
         return NULL;
     }
-    
-    struct node_s *cmd = new_node(NODE_COMMAND);
+    cmd = new_node(NODE_COMMAND);
     if(!cmd)
     {
         free_token(tok);
         return NULL;
     }
     
-    struct source_s *src = tok->src;
+src = tok->src;
     
     do
     {
@@ -23,7 +25,7 @@ struct node_s *parse_simple_command(struct token_s *tok)
             free_token(tok);
             break;
         }
-        struct node_s *word = new_node(NODE_VAR);
+  word = new_node(NODE_VAR);
         if(!word)
         {
             free_node_tree(cmd);
