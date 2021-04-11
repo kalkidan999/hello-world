@@ -1,6 +1,7 @@
 #include "shell.h"
 int main(int argc, char **argv)
 {
+struct source_s src;
     char *cmd;
     do
     {
@@ -20,7 +21,6 @@ int main(int argc, char **argv)
             free(cmd);
             break;
         }
-        struct source_s src;
         src.buffer   = cmd;
         src.bufsize  = _strlen(cmd);
         src.curpos   = INIT_SRC_POS;
@@ -87,7 +87,8 @@ char *read_cmd(void)
 int parse_and_execute(struct source_s *src)
 {
     skip_white_spaces(src);
-    struct token_s *tok = tokenize(src);
+struct token_s *tok;
+tok = tokenize(src);
     if(tok == &eof_token)
     {
         return 0;
