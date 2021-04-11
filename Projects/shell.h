@@ -7,6 +7,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <sys/wait.h>
+#include <stdint.h>
 /* prototype for scanning input*/
 #define ERRCHAR         ( 0)
 #define INIT_SRC_POS    (-2)
