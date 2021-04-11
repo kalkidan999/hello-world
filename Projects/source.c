@@ -9,7 +9,6 @@ void unget_char(struct source_s *src)
 }
 char next_char(struct source_s *src)
 {
-char c1 = 0;
     if(!src || !src->buffer)
     {
         errno = ENODATA;
@@ -21,7 +20,7 @@ char c1 = 0;
     }
     else
     {
-        c1 = src->buffer[src->curpos];
+       src->buffer[src->curpos];
     }
     if(++src->curpos >= src->bufsize)
     {
