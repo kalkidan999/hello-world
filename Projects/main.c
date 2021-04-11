@@ -1,5 +1,5 @@
 #include "shell.h"
-int main(int argc, char **argv)
+int main()
 {
 struct source_s src;
     char *cmd;
