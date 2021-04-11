@@ -86,8 +86,8 @@ char *read_cmd(void)
 }
 int parse_and_execute(struct source_s *src)
 {
-    skip_white_spaces(src);
 struct token_s *tok;
+skip_white_spaces(src);
 tok = tokenize(src);
     if(tok == &eof_token)
     {
