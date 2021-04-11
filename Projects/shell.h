@@ -40,14 +40,14 @@ enum node_type_e
 };
 enum val_type_e
 {
-    VAL_SINT = 1;       /* signed int */
-    VAL_UINT;          /* unsigned int */
-    VAL_SLLONG;         /* signed long long */
-    VAL_ULLONG;         /* unsigned long long */
-    VAL_FLOAT;          /* floating point */
-    VAL_LDOUBLE;        /* long double */
-    VAL_CHR;            /* char */
-    VAL_STR;           /* str (char pointer) */
+    VAL_SINT = 1,       /* signed int */
+    VAL_UINT,         /* unsigned int */
+    VAL_SLLONG,         /* signed long long */
+    VAL_ULLONG,        /* unsigned long long */
+    VAL_FLOAT,        /* floating point */
+    VAL_LDOUBLE,        /* long double */
+    VAL_CHR,          /* char */
+    VAL_STR          /* str (char pointer) */
 };
 union symval_u
 {
