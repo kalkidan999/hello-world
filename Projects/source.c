@@ -9,12 +9,12 @@ void unget_char(struct source_s *src)
 }
 char next_char(struct source_s *src)
 {
+char c1;
     if(!src || !src->buffer)
     {
         errno = ENODATA;
         return ERRCHAR;
     }
-    char c1 = 0;
     if(src->curpos == INIT_SRC_POS)
     {
         src->curpos  = -1;
