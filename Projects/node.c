@@ -60,6 +60,7 @@ void set_node_val_str(struct node_s *node, char *val)
 }
 void free_node_tree(struct node_s *node)
 {
+struct node_s *next;
     if(!node)
     {
         return;
@@ -68,7 +69,7 @@ void free_node_tree(struct node_s *node)
     
     while(child)
     {
-        struct node_s *next = child->next_sibling;
+next = child->next_sibling;
         free_node_tree(child);
         child = next;
     }
