@@ -25,7 +25,9 @@ void add_to_buf(char c)
 }
 struct token_s *create_token(char *str)
 {
-    struct token_s *tok = malloc(sizeof(struct token_s));
+char *nstr;
+struct token_s *tok;
+tok = malloc(sizeof(struct token_s));
     
     if(!tok)
     {
@@ -34,7 +36,7 @@ struct token_s *create_token(char *str)
     memset(tok, 0, sizeof(struct token_s));
     tok->text_len = _strlen(str);
     
-    char *nstr = malloc(tok->text_len+1);
+    nstr = malloc(tok->text_len+1);
     
     if(!nstr)
     {
@@ -58,6 +60,8 @@ void free_token(struct token_s *tok)
 struct token_s *tokenize(struct source_s *src)
 {
     int  endloop = 0;
+struct token_s *tok;
+char nc;
     if(!src || !src->buffer || !src->bufsize)
     {
         errno = ENODATA;
@@ -76,7 +80,7 @@ struct token_s *tokenize(struct source_s *src)
     }
     tok_bufindex     = 0;
     tok_buf[0]       = '\0';
-    char nc = next_char(src);
+    nc = next_char(src);
     if(nc == ERRCHAR || nc == EOF)
     {
         return &eof_token;
@@ -124,7 +128,7 @@ struct token_s *tokenize(struct source_s *src)
         tok_bufindex--;
     }
     tok_buf[tok_bufindex] = '\0';
-    struct token_s *tok = create_token(tok_buf);
+    tok = create_token(tok_buf);
     if(!tok)
     {
         fprintf(stderr, "error: failed to alloc buffer: %s\n",
