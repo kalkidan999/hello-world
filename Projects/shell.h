@@ -31,8 +31,6 @@ struct token_s
 /* the special EOF token, which indicates the end of input */
 struct token_s eof_token
 {
-struct token_s eof_token
-{
     .text_len = 0,
 }
 struct token_s *tokenize(struct source_s *src);
