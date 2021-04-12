@@ -4,6 +4,7 @@ char *search_path(char *file)
     char *PATH = getenv("PATH");
     char *p    = PATH;
     char *p2;
+	int  plen, alen;
      struct stat st;
     while(p && *p)
     {
@@ -12,8 +13,7 @@ char *search_path(char *file)
         {
             p2++;
         }
-        
-	int  plen = p2-p;
+        plen = p2-p;
         if(!plen)
         {
             plen = 1;
