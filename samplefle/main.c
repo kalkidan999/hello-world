@@ -7,7 +7,7 @@ int main()
     char *cmd;
     do
     {
-        print_prompt1();
+        my_handler();
         cmd = read_cmd();
         if(!cmd)
         {
