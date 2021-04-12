@@ -4,7 +4,7 @@ char *search_path(char *file)
     char *PATH = getenv("PATH");
     char *p    = PATH;
     char *p2;
-	char  plen, alen;
+int plen, alen;
      struct stat st;
     while(p && *p)
     {
@@ -60,7 +60,7 @@ char *search_path(char *file)
     errno = ENOENT;
     return NULL;
 }
-int do_exec_cmd()
+int do_exec_cmd(int argc, char **argv)
 {
     if(_strchr(argv[0], '/'))
     {
