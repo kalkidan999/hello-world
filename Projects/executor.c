@@ -4,7 +4,7 @@ char *search_path(char *file)
     char *PATH = getenv("PATH");
     char *p    = PATH;
     char *p2;
-	int  plen, alen;
+	char  plen, alen;
      struct stat st;
     while(p && *p)
     {
@@ -19,7 +19,7 @@ char *search_path(char *file)
             plen = 1;
         }
       alen = _strlen(file);
-    char path[plen + 1];
+    char path[plen + 1 + alen + 1];
 	strncpy(path, p, p2-p);
         path[p2-p] = '\0';
 	if(p2[-1] != '/')
