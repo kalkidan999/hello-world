@@ -29,9 +29,9 @@ struct token_s
  char   *text;               /* token text */
 };
 /* the special EOF token, which indicates the end of input */
-struct token_s eof_token
+extern struct token_s eof_token
 {
-    .text_len = 0,
+    .text_len = 0;
 }
 struct token_s *tokenize(struct source_s *src);
 void free_token(struct token_s *tok);
