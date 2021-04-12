@@ -1,4 +1,5 @@
 #include "shell.h"
+#define MAX 400
 char *search_path(char *file)
 {
     char *PATH = getenv("PATH");
@@ -19,7 +20,7 @@ int plen, alen;
             plen = 1;
         }
       alen = _strlen(file);
-    int path[plen + 1 + alen + 1];
+    char path[MAX];
 	strncpy(path, p, p2-p);
         path[p2-p] = '\0';
 	if(p2[-1] != '/')
