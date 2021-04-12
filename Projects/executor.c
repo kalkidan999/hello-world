@@ -4,7 +4,7 @@ char *search_path(char *file)
     char *PATH = getenv("PATH");
     char *p    = PATH;
     char *p2;
-    
+     struct stat st;
     while(p && *p)
     {
         p2 = p;
@@ -30,9 +30,7 @@ char *search_path(char *file)
             _strcat(path, "/");
         }
         _strcat(path, file);
-        
-	struct stat st;
-        if(stat(path, &st) == 0)
+         if(stat(path, &st) == 0)
         {
             if(!S_ISREG(st.st_mode))
             {
@@ -100,7 +98,7 @@ int do_simple_command(struct node_s *node)
 	struct node_s *child;
 	char *argv[max_args+1];/* keep 1 for the terminating NULL arg */
     char *str;
-	 long max_args = 255;
+	 
 	 pid_t child_pid = 0;
 	  int status = 0;
     if(!node)
@@ -122,7 +120,7 @@ int do_simple_command(struct node_s *node)
             free_argv(argc, argv);
             return 0;
         }
-        
+        long max_args = 255;
 	_strcpy(argv[argc], str);
         if(++argc >= max_args)
         {
