@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <errno.h>
 int main(int argc, char **argv)
 {
     char *cmd;
