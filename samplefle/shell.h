@@ -10,12 +10,9 @@
 #include <unistd.h>
 #include <signal.h>
 /* Prototypes */
-char **usetok(char *buff);
-extern char **environ;
-void _printenv(void);
-char *concat(char *s1, char *s2);
-char *get_path(void);
-char **concat_path(char **args);
-void _execve(char **args);
-void free_double(char **ptr);
+
+void print_prompt1(void);
+void print_prompt2(void);
+
+char *read_cmd(void);
 #endif
