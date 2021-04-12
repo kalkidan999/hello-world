@@ -7,7 +7,7 @@ int main()
     char *cmd;
     do
     {
-        my_handler();
+        my_handler(int var);
         cmd = read_cmd();
         if(!cmd)
         {
