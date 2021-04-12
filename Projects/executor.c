@@ -1,5 +1,6 @@
 #include "shell.h"
 #define MAX 400
+#define max_args 255
 char *search_path(char *file)
 {
     char *PATH = getenv("PATH");
@@ -95,7 +96,6 @@ int do_simple_command(struct node_s *node)
 { 
     int argc = 0;
 	struct node_s *child;
-	 long max_args = 255;
 	char *argv[max_args+1];/* keep 1 for the terminating NULL arg */
     char *str;
 	 
