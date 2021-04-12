@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include "shell.h"
-void print_prompt1(void)
+void my_handler(int var)
 {
-    fprintf(stderr, "$ ");
+	(void) var;
+	write(STDOUT_FILENO, "\n$ ", 3);
+	fflush(stdout);
 }
 void print_prompt2(void)
 {
