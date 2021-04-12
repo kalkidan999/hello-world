@@ -62,7 +62,7 @@ int plen, alen;
 }
 int do_exec_cmd(int argc, char **argv)
 {
-	argc = 0;
+	argc = argc;
     if(_strchr(argv[0], '/'))
     {
         execv(argv[0], argv);
