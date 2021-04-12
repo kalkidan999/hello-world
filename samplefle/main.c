@@ -24,21 +24,13 @@ int main(int argc, char **argv)
         free(cmd);
     } while(1);
     exit(EXIT_SUCCESS);
-}
-void print_prompt1(void)
-{
-    fprintf(stderr, "$ ");
-}
-void print_prompt2(void)
-{
-    fprintf(stderr, "> ");
-}
-
+} 
 char *read_cmd(void)
 {
     char buf[1024];
     char *ptr = NULL;
     char ptrlen = 0;
+
     while(fgets(buf, 1024, stdin))
     {
         int buflen = strlen(buf);
@@ -64,7 +56,7 @@ char *read_cmd(void)
 
         if(!ptr)
         {
-            fprintf(stderr, "error: failed to alloc buffer: %s\n",
+            fprintf(stderr, "error: failed to alloc buffer: %s\n", 
                     strerror(errno));
             return NULL;
         }
