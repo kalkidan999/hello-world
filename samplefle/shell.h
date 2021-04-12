@@ -11,7 +11,7 @@
 #include <signal.h>
 /* Prototypes */
 
-void print_prompt1(void);
+void my_handler(int var)
 void print_prompt2(void);
 
 char *read_cmd(void);
