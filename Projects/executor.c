@@ -19,7 +19,7 @@ int plen, alen;
             plen = 1;
         }
       alen = _strlen(file);
-    char path[plen + 1 + alen + 1];
+    int path[plen + 1 + alen + 1];
 	strncpy(path, p, p2-p);
         path[p2-p] = '\0';
 	if(p2[-1] != '/')
