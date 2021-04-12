@@ -78,6 +78,7 @@ void    set_node_val_str(struct node_s *node, char *val);
 char *search_path(char *file);
 int do_exec_cmd(int argc, char **argv);
 int do_simple_command(struct node_s *node);
+int change_dir(char **cmd, int er);
 /* prototype for prompt and read*/
 void print_prompt1(void);
 void print_prompt2(void);
