@@ -19,7 +19,7 @@ char *search_path(char *file)
             plen = 1;
         }
       alen = _strlen(file);
-     path[plen+1+alen+1];
+    char path[plen+1+alen+1];
 	strncpy(path, p, p2-p);
         path[p2-p] = '\0';
 	if(p2[-1] != '/')
@@ -60,7 +60,7 @@ char *search_path(char *file)
     errno = ENOENT;
     return NULL;
 }
-int do_exec_cmd(int argc, char **argv)
+int do_exec_cmd()
 {
     if(_strchr(argv[0], '/'))
     {
@@ -93,6 +93,7 @@ int do_simple_command(struct node_s *node)
 { 
     int argc = 0;
 	struct node_s *child;
+	 long max_args = 255;
 	char *argv[max_args+1];/* keep 1 for the terminating NULL arg */
     char *str;
 	 
@@ -117,7 +118,7 @@ int do_simple_command(struct node_s *node)
             free_argv(argc, argv);
             return 0;
         }
-        long max_args = 255;
+       
 	_strcpy(argv[argc], str);
         if(++argc >= max_args)
         {
