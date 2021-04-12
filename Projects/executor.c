@@ -19,7 +19,8 @@ char *search_path(char *file)
             plen = 1;
         }
       alen = _strlen(file);
-    char path[plen+1+alen+1];
+	    char sum = plen + 1 + alen + 1;
+    char path[sum];
 	strncpy(path, p, p2-p);
         path[p2-p] = '\0';
 	if(p2[-1] != '/')
