@@ -95,22 +95,23 @@ static inline void free_argv(int argc, char **argv)
     }
 }
 int do_simple_command(struct node_s *node)
-{
+{ 
+    int argc = 0;
+	struct node_s *child;
+	char *argv[max_args+1];/* keep 1 for the terminating NULL arg */
+    char *str;
+	 long max_args = 255;
+	 pid_t child_pid = 0;
+	  int status = 0;
     if(!node)
     {
         return 0;
     }
-    struct node_s *child = node->first_child;
+	child = node->first_child;
     if(!child)
     {
         return 0;
     }
-    
-    int argc = 0;
-    long max_args = 255;
-    char *argv[max_args+1];/* keep 1 for the terminating NULL arg */
-    char *str;
-    
     while(child)
     {
         str = child->val.str;
@@ -130,7 +131,6 @@ int do_simple_command(struct node_s *node)
         child = child->next_sibling;
     }
     argv[argc] = NULL;
-    pid_t child_pid = 0;
     if((child_pid = fork()) == 0)
     {
         do_exec_cmd(argc, argv);
@@ -155,7 +155,7 @@ int do_simple_command(struct node_s *node)
                 strerror(errno));
         return 0;
     }
-    int status = 0;
+  
     waitpid(child_pid, &status, 0);
     free_argv(argc, argv);
     
