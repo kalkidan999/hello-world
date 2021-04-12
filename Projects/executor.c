@@ -3,7 +3,7 @@ char *search_path(char *file)
 {
     char *PATH = getenv("PATH");
     char *p    = PATH;
-    char *p2, path;
+    char *p2;
 	int  plen, alen;
      struct stat st;
     while(p && *p)
